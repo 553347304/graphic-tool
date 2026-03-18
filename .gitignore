@@ -1,0 +1,18 @@
+$RECYCLE.BIN
+System Volume Information
+
+.git
+.idea
+.vs
+.vscode
+.gradle
+.pnpm-store
+node_modules
+build
+dist
+
+.package
+utils/packages
+utils/resource
+assets
+
