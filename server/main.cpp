@@ -14,7 +14,7 @@ struct Option {
     NLOHMANN_DEFINE_TYPE_INTRUSIVE_WITH_DEFAULT(Option, value, label)
 };
 
-const int g_port = 15000;
+const int g_port = 56630;
 
 #include <assets.h>
 int main() {
