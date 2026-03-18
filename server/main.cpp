@@ -46,14 +46,14 @@ int main() {
 
         std::vector<Option> options;
         if (type == DeviceType::AndroidAdb) {
-            std::string shell = koneko::iconv::String(koneko::system::Shell("adb devices")).Trim();
+            std::string shell = koneko::iconv::String(koneko::system::Shell("adb/adb.exe devices")).Trim();
             auto items = koneko::method::Split(shell, "\n");
 
             for (int i = 0; i < items.size(); ++i) {
                 char addr[64];
                 if (sscanf(items[i].c_str(), "%s\tdevice", addr) == 1) {
                     if (i == 0) continue;
-                    options.push_back({std::string(addr), std::string(addr)});
+                    options.push_back({std::string(addr), items[i]});
                 }
             }
         }
@@ -88,7 +88,6 @@ int main() {
                 }
             }
         }
-
         res.Success("ok", json{{"list", options}}.dump());
     });
     router.Get("/api/screenshot", [](const koneko::net::http::Request& req, koneko::net::http::Response& res) {
@@ -103,7 +102,7 @@ int main() {
         cv::Mat mat = {};
         std::vector<Option> options;
         if (type == DeviceType::AndroidAdb) {
-            auto data = koneko::system::Shell(koneko::sprintf("adb.exe -s %s exec-out screencap -p", target.c_str()));
+            auto data = koneko::system::Shell(koneko::sprintf("adb/adb.exe -s %s exec-out screencap -p", target.c_str()));
             mat = cv::imdecode(data, cv::IMREAD_COLOR);
         }
         if (type == DeviceType::WindowsHwnd) {

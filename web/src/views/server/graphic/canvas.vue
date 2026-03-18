@@ -457,9 +457,8 @@ watch(() => store.server.graphic.canvas.device.target, (value) => {
 
       <div v-if="!hasImage" class="doc-layer">
         <koneko-unit-title title="文档"/>
-        <h4>android: 使用前自己设置好adb环境变量</h4>
         <h4>鼠标左键: 选框并复制区域</h4>
-        <h4>鼠标右键: 选框并复制区域并弹出操作列表</h4>
+        <h4>鼠标右键: 选框并复制区域弹出操作列表</h4>
         <h4>↑↓←→: 移动1像素</h4>
         <h4>enter: 加入color列表</h4>
         <h4>图片保存位置: screenshot/index</h4>

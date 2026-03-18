@@ -10,6 +10,10 @@ export default defineConfig({
   plugins: [
     vue(),
   ],
+  build: {
+    outDir: '../server/assets/dist',
+    emptyOutDir: true,
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
