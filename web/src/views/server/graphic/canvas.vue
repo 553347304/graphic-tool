@@ -422,6 +422,7 @@ onMounted(() => {
     }
   })
   window.addEventListener('keydown', (e) => {
+    e.preventDefault();
     switch (e.key) {
       case 'ArrowUp':    useApi.post("/api/key", {x: 0, y: -1}); break
       case 'ArrowDown':  useApi.post("/api/key", {x: 0, y: 1}); break
